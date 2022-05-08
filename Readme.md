@@ -6,8 +6,10 @@
 
 * The 'attention_with_sequence_to_sequence' folder contains the GRU model with attention. The best hyperparameter configuration for the attention based model was obtained using wandb sweeps.
 
+* The Readme files and complete description for both the folders can be found inside the folders.
+
 ## Language Used
-* We have used hindi language for the transliteration.
+* We have used hindi language for the transliteration task.
 
 ## Wandb Report
 
