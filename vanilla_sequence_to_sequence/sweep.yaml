@@ -8,7 +8,7 @@ metric:
   goal: minimize
 parameters:
   type_:
-    values: ['GRU']
+    values: ['RNN', 'LSTM', 'GRU']
   units:
     values: [64, 128, 512]
   enc_layers:
