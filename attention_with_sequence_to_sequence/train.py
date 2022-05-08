@@ -30,7 +30,7 @@ def train(train_for_one):
         rnn_units = 128
         embed_dim = 512
         drpout = 0.2
-        epochs = 1
+        epochs = 20
         batch_size = 128
     else:
         # if we want to sweep over all hyperparameter configurations, use wandb
@@ -213,7 +213,7 @@ def gen_plot(ip_w, file_, sub_folder_name):
     # pass the attention weights to make the heatmap plots
     make_plot(attention, ip_w, pred_w, file_, sub_folder_name)
     txt = 'Input: {} <br> Prediction: {}'.format(ip_w, pred_w) + '<br>'
-    # pass the same attention weights to visualize the 
+    # pass the same attention weights to visualize the connectivity using attention weights
     connectivity(ip_w, pred_w, all_att_weights, txt)
 
 # make the heatmap plot and save it as image
@@ -236,7 +236,7 @@ def make_plot(attention, ip_w, pred_w, file_, sub_folder_name):
     ax.set_yticklabels([''] + list(pred_w), fontdict=fontdict, rotation=0, fontproperties=font_)
     plt.savefig(file_)
 
-# methods to generate colorful backgrounds for the text
+# methods to generate colorful backgrounds for the text according to the attention weights
 def cstr(s, color='black'):
 	if s == ' ':
 		return "<text style=color:#000;padding-left:10px;background-color:{}> </text>".format(color, s)
@@ -273,6 +273,7 @@ def connectivity(ip_w, op_w, att_w, txt_):
     f.write(all_text)
     f.close()
 
+# change the 1 to 0 if you want to sweep using wandb instead of training only the best model
 train(1)
             
 
