@@ -7,30 +7,24 @@ metric:
   name: train_loss
   goal: minimize
 parameters:
-# 64, 128, 
-# 1,2, 4
-# 1,2
-# 8,16,64
-#distribution: int_uniform
-    # min: 1
-    # max: 4
-# distribution: int_uniform
-#     min: 36
-#     max: 100
   type_:
     values: ['GRU']
   units:
-    values: [512]
+    values: [64, 128, 512]
   enc_layers:
-    values: [2]
+    values: [1,2,3,4]
   dec_layers:
-    values: [3]
+    values: [1,2,3]
   embed_dim:
-    values: [8]
+    values: [16,32,64]
   dropout:
     values: [0.0]
   epochs:
-    values: [2]
+    distribution: int_uniform
+      min: 1
+      max: 4
   batch_size:
-    values: [47]
+    distribution: int_uniform
+      min: 36
+      max: 100
   
