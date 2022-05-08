@@ -4,7 +4,6 @@ from make_dataset import PrepareData
 from encoders import  GRU_enc 
 from decoders import  GRU_dec
 import matplotlib.pyplot as plt
-import matplotlib.ticker as ticker
 from matplotlib.font_manager import FontProperties
 import os
 import numpy as np
@@ -90,16 +89,16 @@ def train(train_for_one):
     
     # the test and validation accuracy are calculated for each configuration of the model
 
-    # test_acc = validation(test_path, run_)
+    test_acc = validation(test_path, run_)
     val_acc = validation(val_path, type_)
     if(train_for_one != 1):
         wandb.log({'val_acc': val_acc})
-    # print("Test Accuracy: ",test_acc)
+    print("Test Accuracy: ",test_acc)
     print("Validation Accuracy: ", val_acc)
     
-    # the random_test_words function can be uncommented to generate the connectivity plot and heatmaps for 
+    # the random_test_words function can be used to generate the connectivity plot and heatmaps for 
     # the output from one configuration of the model
-    # better to use for train(1) --> train for one is true (trains on the best model only, does not sweep)
+    # better to use for train(1) --> train_for_one is true (trains on the best model only, does not sweep)
 
     random_test_words(10)
 
